@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Drag and drop example</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+    <span>How to deploy</span>
+    <span class="example-spacer"></span>
+    <mat-icon class="example-icon">verified_user</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{ movie }}</div>
+</div>
+
+<app-todo></app-todo>
+
+<router-outlet></router-outlet>

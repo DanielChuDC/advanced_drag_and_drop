@@ -1,27 +1,21 @@
 import { Component } from '@angular/core';
 
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dragdrop';
+  title = 'Advanced drag and drop';
 
-  movies = [
-    'Episode I - The Phantom Menace',
-    'Episode II - Attack of the Clones',
-    'Episode III - Revenge of the Sith',
-    'Episode IV - A New Hope',
-    'Episode V - The Empire Strikes Back',
-    'Episode VI - Return of the Jedi',
-    'Episode VII - The Force Awakens',
-    'Episode VIII - The Last Jedi'
-  ];
+  pageHorizontal: boolean;
 
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
+  horizontal() {
+    this.pageHorizontal = true;
+    console.log('page Horizontal clicked');
+  }
+  vertical() {
+    this.pageHorizontal = false;
+    console.log('page verical clicked');
   }
 }

@@ -8,14 +8,25 @@
   <mat-toolbar-row>
     <span>How to deploy</span>
     <span class="example-spacer"></span>
-    <mat-icon class="example-icon">verified_user</mat-icon>
+    <button mat-icon-button>
+      <mat-icon>more_horiz</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>verified_user</mat-icon>
+    </button>
+    <button mat-icon-button (click)="horizontal()">
+      <mat-icon>swap_horizontal_circle</mat-icon>
+    </button>
+    <button mat-icon-button (click)="vertical()">
+      <mat-icon>vertical_align_bottom</mat-icon>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-  <div class="example-box" *ngFor="let movie of movies" cdkDrag>{{ movie }}</div>
+<div style="text-align:center">
+  <h1>Welcome to {{ title }}!</h1>
 </div>
 
-<app-todo></app-todo>
+<app-todo [condition]="pageHorizontal"></app-todo>
 
 <router-outlet></router-outlet>

@@ -1,4 +1,151 @@
-<p>
+<!--Add bootstrap to customize the outlook-->
 
-   
-</p>
+<div class="container">
+  <div class="row">
+    <div class="example-container">
+      <h2>Available Node</h2>
+      <!--Add to do -->
+      <div
+        cdkDropList
+        cdkDropListOrientation="horizontal"
+        #BeforeList="cdkDropList"
+        [cdkDropListData]="availNode"
+        [cdkDropListConnectedTo]="[
+          AfterMasterList,
+          AfterProxyList,
+          AfterMgmtList,
+          AfterWorkerList,
+          AfterStorageList
+        ]"
+        class="example-listhorizon"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div class="example-boxhorizon" *ngFor="let item of availNode" cdkDrag>
+          <!-- Passing Data using title and @Input decorator to app card-->
+          <!-- <app-card [title]="item"></app-card> -->
+          {{ item }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Below is vertical-->
+
+<div>
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="example-container">
+        <h2>You have {{ masterNode.length }} x Master Node</h2>
+
+        <div
+          cdkDropList
+          #AfterMasterList="cdkDropList"
+          [cdkDropListData]="masterNode"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+          [cdkDropListEnterPredicate]="verifyDrop"
+        >
+          <div class="example-box" *ngFor="let item of masterNode" cdkDrag>
+            <!-- Passing Data using title and @Input decorator to app card-->
+            <app-card [title]="item"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="example-container">
+        <h2>You have {{ proxyNode.length }} x Proxy Node</h2>
+
+        <div
+          cdkDropList
+          #AfterProxyList="cdkDropList"
+          [cdkDropListData]="proxyNode"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+          [cdkDropListEnterPredicate]="verifyDrop"
+        >
+          <div class="example-box" *ngFor="let item of proxyNode" cdkDrag>
+            <!-- Passing Data using title and @Input decorator to app card-->
+            <app-card [title]="item"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="example-container">
+        <h2>You have {{ mgmtNode.length }} x Management Node</h2>
+
+        <div
+          cdkDropList
+          #AfterMgmtList="cdkDropList"
+          [cdkDropListData]="mgmtNode"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+          [cdkDropListEnterPredicate]="verifyDrop"
+        >
+          <div class="example-box" *ngFor="let item of mgmtNode" cdkDrag>
+            <!-- Passing Data using title and @Input decorator to app card-->
+            <app-card [title]="item"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="example-container">
+        <h2>You have {{ workerNode.length }} x Worker Node</h2>
+
+        <div
+          cdkDropList
+          #AfterWorkerList="cdkDropList"
+          [cdkDropListData]="workerNode"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+          [cdkDropListEnterPredicate]="verifyDrop"
+        >
+          <div class="example-box" *ngFor="let item of workerNode" cdkDrag>
+            <!-- Passing Data using title and @Input decorator to app card-->
+            <app-card [title]="item"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="example-container">
+        <h2>You have {{ storageNode.length }} x Storage Node</h2>
+
+        <div
+          cdkDropList
+          #AfterStorageList="cdkDropList"
+          [cdkDropListData]="storageNode"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+          [cdkDropListEnterPredicate]="verifyDrop"
+        >
+          <div class="example-box" *ngFor="let item of storageNode" cdkDrag>
+            <!-- Passing Data using title and @Input decorator to app card-->
+            <app-card [title]="item"></app-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Copyright 2019 Google Inc. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at http://angular.io/license -->
+
+<!--Some properties value
+  
+      cdkDropList directive as a droppable list
+      #pendingList is list identifier
+      cdkDropListData takes list object
+      cdkDropListConnectedTo tells about, to which list it can communicate or drag and drop lists. We can add any number of lists, it takes an array or identifier list names.
+      cdkDropListDropped binds and event, fired when an item is dropped in this list.
+  
+    -->

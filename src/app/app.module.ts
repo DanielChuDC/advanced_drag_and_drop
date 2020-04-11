@@ -13,8 +13,9 @@ import { NgmatModule } from './ngmat/ngmat.module';
 
 import { CdkmoduleModule } from './cdkmodule/cdkmodule.module';
 import { TodoComponent } from './todo/todo.component';
+import { CardComponent } from './card/card.component';
 @NgModule({
-  declarations: [AppComponent, TodoComponent],
+  declarations: [AppComponent, TodoComponent, CardComponent],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, NgmatModule, CdkmoduleModule],
   providers: [],
   bootstrap: [AppComponent]
